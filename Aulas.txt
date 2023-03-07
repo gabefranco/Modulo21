@@ -1,0 +1,105 @@
+Testes de Unidades com TDD:
+
+/// Aula 01 ///
+
+Testa a menor unidade do sistema
+Evita que erros se espalhem
+Feito pelos Devs
+Importante sabermos
+    O que estou testando?
+    Qual metodo devemos utilizar?
+    Qual o seu atual retorno?
+    O que espero que retorne?
+
+Os testes de unidades são executados no inicio e estao na base de uma piramide, por isso é importante investir um tempo sobre isso
+
+TDD = Test Driven Development
+
+Criado em 2003 por Kent Beck, tem como objetivo fazer alguns testes antes mesmo do codigo fonte ser iniciado, isso faz com que
+haja alguns beneficios como: Redução de Bugs, Segurança em Refatorar, Serve de Documentação, Manutenbilidade.
+
+As etapas do TDD são:
+
+RED - Escrever um teste que FALHE propositalmente;
+GREEN - Escrever um código que passe no TESTE, mais simples possivel;
+REFACTOR - Refatorar o codigo com o teste até que ele funcione certo.
+
+TDD em JavaScript
+
+Existem alguns frameworks disponiveis para serem usados em javascript, sao eles:
+
+Mocha
+Cypress
+Jest
+Karma
+Jasmine
+StoryBook (Front-end)
+
+/// Aula 02 ///
+
+TDD com Jest
+
+Nessa aula foi visto os testes dentro do codigo.js e a execução deles dentro do codigo.test.js, conforme abaixo:
+
+//Arquivo Codigo.js//
+
+const soma = (a,b) => a + b; // isso é a mesma coisa que isso: const soma = function () {};
+// o codigo acima é que será testado no Jest dentro do arquivo "codigo.test.js"
+// para isso esse arquivo deve ser exportado, conforme abaixo
+const dobro = (valor) => valor * 2;
+
+module.exports = { soma, dobro } // comando para exportar a variavel "soma"
+
+// Arquivo codigo.test.js //
+
+
+const { soma, dobro } = require ('./codigo') // aqui trouxe a variavel igual está no arquivo do codigo.
+
+describe ('Funções Matemáticas:', ()=>{
+    
+    beforeAll(() => {
+        console.log('antes de tudo')
+    });
+
+    beforeEach(() => {
+        console.log('antes de cada teste')
+    });
+
+    afterEach(() => {
+        console.log('depois de cada teste')
+    });
+
+    afterAll(() => {
+        console.log('depois de tudo')
+    });
+
+    it('01 - Soma de dois valores', () => {
+        expect(soma(2,5)).toBe(7);
+        expect(soma(2,4)).toBe(6);
+        expect(soma(22,33)).toBe(55);
+    });
+    it('02 - Dobro do valor', () => {
+        expect(dobro(4)).toBe(8);
+    });
+});
+
+/// Aula 03 ///
+
+Testing Doubles
+
+Nesse teste iremos usar como base um banco de dados (database.js), um controller.js que irá executar a busca no banco de dados,
+sem que seja necessário fazer isso pelo próprio banco de dados, e o teste em si, que é o controller.test.js
+
+O primeiro teste foi utilizando dados "fake" estáticos, para que o resultado seja sempre o mesmo.
+O segundo teste foi utilizando o "spy" do "sinon", para monitorar os dados, ele pode debugar e verificar o codigo.
+O terceiro teste foi utilizando o "stub" ele consegue validar cenários diferentes de respostas dentro da aplicação.
+O quarto teste foi utilizando o "mock".
+
+/// Aula 04 /// 
+
+Testes de Componentes com Cypress
+
+Nessa aula usamos o Cypress no modo Component Testing
+
+/// Aula 05 ///
+

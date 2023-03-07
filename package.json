@@ -1,0 +1,19 @@
+{
+  "name": "modulo21",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@cypress/vue": "^5.0.4",
+    "@cypress/webpack-dev-server": "^3.3.0",
+    "cypress": "^12.7.0",
+    "jest": "^29.5.0",
+    "sinon": "^15.0.1"
+  }
+}
